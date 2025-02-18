@@ -79,3 +79,81 @@ function factorialOfNumber(n) {
     console.log("Factorial of ",n," is ",result)
 }
 factorialOfNumber(4);
+
+// CHALLENGE: Fibonacci Sequence
+function FibonacciSequence(n) {
+    console.log("fibonacci sequence is: ")
+
+    let x = 0;
+    let y = 1;
+
+    console.log(x);
+    console.log(y);
+
+    for(let i=2; i<n; i++){
+        let nextNo = x + y;
+        console.log(nextNo);
+        x = y;
+        y = nextNo;
+    }
+    
+}
+FibonacciSequence(10);
+
+// CHALLENGE: Reverse a Number
+function ReverseNumber(num) {
+    console.log("Original number is: ", num );
+    let result = [];
+    if(num.toString().length <= 1 ) {
+        console.log("No change since its only one digit");
+        return num;
+    }
+    else {
+        for(let i of num.toString()) {
+            result.push(i);
+        }
+        result.reverse();
+        let newResult = Number(result.join("")); // join elements and convert to a number
+        console.log("The reversed number now is: ",newResult);
+    }
+}
+ReverseNumber(12345);
+
+// . Challenge: Sum of Digits
+//Write a function that calculates the sum of all digits in a number. For example, given 1234, the result should be 10 (1 + 2 + 3 + 4).
+
+function sumDigits(num) {
+    let total = 0;
+    numStr = num.toString();
+    for(let i of numStr){
+        total += parseInt(i);
+        i++;
+    }
+     console.log("The sum of the digits in this ", num , " is: ", total );
+}
+sumDigits(5654);
+
+/* Bonus Challenge: FizzBuzz
+Print numbers from 1 to 100, but:
+
+if the number is divisible by 3, print "Fizz".
+If the number is divisible by 5, print "Buzz".
+If the number is divisible by both 3 and 5, print "FizzBuzz".*/
+
+function FizzBuzzNo() {
+    for(let x=1; x<=100; x++){
+        if(x % 3 == 0 && x % 5 == 0) {
+            console.log(x, " FizzBuzz");
+        }
+        if(x % 3 == 0){
+            console.log(x, " Fizz");
+        }
+        else if(x % 5 == 0){
+            console.log(x, " Buzz");
+        }
+        else {
+            console.log(x);
+        }
+    }
+}
+FizzBuzzNo();
