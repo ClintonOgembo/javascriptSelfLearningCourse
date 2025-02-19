@@ -23,3 +23,15 @@ EVENTS:
     console.log("Default link behavior prevented!");
  });
 
+ const form = document.getElementById(signUpForm);
+
+ form.addEventListener("submit", function(event) {
+    event.preventDefault(); // prevents the form from refreshing the page.
+    alert("Submitted");
+
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+
+    alert(`Form submitted! Name: ${name}, Email: ${email}`);
+ });
+
