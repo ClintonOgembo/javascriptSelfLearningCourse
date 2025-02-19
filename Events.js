@@ -8,7 +8,7 @@ EVENTS:
 - addEventListener method is commonly used to handle events.
    BASIC SYNTAX:
 
- Adding a click event to a button */
+ Adding a click event to a button 
  const button = document.getElementById("myButton");
 
  button.addEventListener("click", function() {
@@ -22,12 +22,12 @@ EVENTS:
     event.preventDefault();
     console.log("Default link behavior prevented!");
  });
+*/
 
- const form = document.getElementById(signUpForm);
+ const form = document.getElementById("signUpForm");
 
  form.addEventListener("submit", function(event) {
     event.preventDefault(); // prevents the form from refreshing the page.
-    alert("Submitted");
 
     const name = document.getElementById("name").value;
     const email = document.getElementById("email").value;
