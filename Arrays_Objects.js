@@ -115,3 +115,61 @@ console.log(checkOrange);
 
 let FruitStr = Fruits.join();
 console.log(FruitStr);
+
+// OBJECTS : IS A COLLECTION OF PROPERTIES, WHERE EACH PROPERTY HAS A KEY AND VALUE.
+// WE USE {} OR THE "new object()" syntax.
+
+const player = {
+    name: "Clinton",
+    age: 22,
+    team: "MSFC",
+    position: "Forward",
+    scoreGoal: function() {
+        console.log(`${this.name} has scored a goal!`);
+    }
+};
+
+// accessing properties
+console.log(player.name);
+console.log(player["position"]);
+// calling the method
+player.scoreGoal();
+
+console.log(player);
+
+// Modifying objects
+// Adding a NEW Property
+player.level = "Amatuer";
+
+//updating age from 22 to 25;
+player.age = 25;
+
+console.log(player);
+
+// deleting a property
+delete player.level;
+
+console.log(player);
+
+// Looping Through Object Properties:
+// for...in loop
+
+const team = {
+    name: "MSFC",
+    location: "Kenya",
+    founded: 2015
+};
+
+for (let key in team) {
+    console.log(`${key}: ${team[key]}`);
+}
+
+// Nested Objects:
+const club = {
+    name: "MSFC",
+    manager: { name: "James", experience: 10 },
+    players: ["John", "Mime", "Alex"]
+};
+
+console.log(club.manager.name); // "james"
+console.log(club.players[1]); //mime

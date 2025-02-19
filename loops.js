@@ -24,7 +24,7 @@ console.log("------------------");
 // syntax
 const person = {name: 'claire', age: 24};
 for (let i in person) {
-    console.log('${key}: ${person[key]}');
+    console.log(`${key}: ${person[key]}`);
 } 
 
 const fruits = ["apple", "banana", "orange"]; // here it iterates over the index so you must include the var name <"fruits"> for iteration of values
