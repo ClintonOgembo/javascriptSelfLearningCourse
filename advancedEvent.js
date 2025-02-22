@@ -10,9 +10,9 @@ document.addEventListener("DOMContentLoaded", function() {
         event.preventDefault();
 
         // get input values
-        const name = form.document.getElementById("name").value.trim();
-        const age = form.document.getElementById("age").value.trim();
-        const email = form.document.getElementById("email").value.trim();
+        const name = document.getElementById("name").value.trim();
+        const age = document.getElementById("age").value.trim();
+        const email = document.getElementById("email").value.trim();
 
         // Clear previous error messages
         clearErrors();
@@ -21,19 +21,19 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // validate Name
         if(name === "") {
-            showError(name, "Name is required");
+            showError(document.getElementById("name"), "Name is required");
             isValid = false;
         }
 
         // validate age
         if (age === "" || isNaN(age) || age < 18) {
-            showError(age, "Age must be a number and at leats 18.");
+            showError(document.getElementById("age"), "Age must be a number and at leats 18.");
             isValid = false;
         }
 
         //validate email
         if (email === "" || !email.match(/^[a-zA-Z0-9._+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}&/)) {
-            showError(email, "Enter a valid email address.");
+            showError(document.getElementById("email"), "Enter a valid email address.");
             isValid = false;
         }
 
@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function() {
             name, age, email
         };
 
-        localStorage.setItem("userData", JSON.stringify(serData));
+        localStorage.setItem("userData", JSON.stringify(userData));
 
         // display submitted data
         displayData(userData);
