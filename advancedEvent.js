@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         //validate email
-        if (email === "" || !email.match(/^[a-zA-Z0-9._+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}&/)) {
+        if (email === "" || !email.match(/^[a-zA-Z0-9._+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)) {
             showError(document.getElementById("email"), "Enter a valid email address.");
             isValid = false;
         }
