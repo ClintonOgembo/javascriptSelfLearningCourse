@@ -41,9 +41,61 @@ function binarySearch(arr, target) {
     while (left <= right) {
         let mid = Math.floor((left + right) / 2);
         if (arr[mid] === target) return mid;
-        else if (arr[mid] < target) left = mid + 1;
-        else right = mid - 1;
+        else if (arr[mid] < target) left = mid + 1;  // move to the right
+        else right = mid - 1;   // move to the left
     }
     return -1;
 }
-console.log("Binary search: ",binarySearch([1,2,3,4],1));
+console.log("Binary search: ",binarySearch([1,2,3,4],3));
+
+// CHALLENGES
+// 1.1 Write a function that takes an array of numbers and returns the sum of all elements
+function arraySum(arr) {
+    let total = 0;
+    for(let i of arr) {
+        total += i;
+    }
+    return total;
+}
+console.log("Sum of the array elements: ",arraySum([10,20,30]));
+
+// 1.2 Write a function that checks if a given number exists in an array.
+// First Method -using arrays.include().
+function checkArrElement(arr, target) {
+    if(arr.includes(target)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+console.log("first method ",checkArrElement([2,3,4],2));
+
+// Second Method.-using binary search
+function checkElement(arr,target) {
+    let left=0;
+    let right = arr.length-1;
+    while (left <= right) {
+        let pivot = Math.floor((left + right)/2);
+        if(arr[pivot] === target) return pivot;
+        else if(arr[pivot] < target) left = pivot + 1;
+        else right = pivot - 1;
+    }
+    return -1;
+}
+console.log("second method: ", checkElement([4,5,6,7],7));
+
+// third method - using sets
+function searchElement(arr,target) {
+    let numSet = new Set(arr);
+    if(numSet.has(target)) return true;
+    else return false;
+}
+console.log("Third method: ", searchElement([6,7,8,9],7));
+
+// Final conclusions:
+/*  Best Overall Choice:
+✅ Binary Search (O(log n), O(1)) → Fastest for large sorted arrays.
+✅ Set (O(1) lookup, O(n) space) → Best for repeated searches.
+❌ includes() is simple but slow for large datasets.
+*/
