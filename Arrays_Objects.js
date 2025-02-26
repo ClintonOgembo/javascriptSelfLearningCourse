@@ -173,3 +173,22 @@ const club = {
 
 console.log(club.manager.name); // "james"
 console.log(club.players[1]); //mime
+
+
+// Sorting an array. O(n^2)
+function bubbleSort(arr) {
+    let n = arr.length; // Get the size of the array
+    for (let i = 0; i < n - 1; i++) { // Outer loop: Runs n-1 times
+        for (let j = 0; j < n - i - 1; j++) { // Inner loop: Goes up to (n - i - 1)
+            if (arr[j] > arr[j + 1]) { // Swap if the current element is greater than the next
+                [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+            }
+        }
+    }
+    return arr; // Return the sorted array
+}
+console.log(bubbleSort([5, 3, 8, 4, 2]));
+
+// using built-in sorting (O(n log n))
+let sortedArr = [5, 3, 8, 4, 2].sort((a, b) => a - b);
+console.log(sortedArr); // Output: [2, 3, 4, 5, 8]
