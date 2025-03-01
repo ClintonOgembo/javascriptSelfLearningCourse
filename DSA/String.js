@@ -116,12 +116,24 @@ function mostUsedLetter(word) {
     let maxCount = 0; // This will store how many times that letter appears.
 
     for(let char of word) {
-        count[letter] = (count[letter] || 0) + 1;
-        if (count[letter] > maxCount) {
-            maxCount = count[letter];
-            maxLetter = letter;
+
+        count[char] = (count[char] || 0) + 1;
+
+        if (count[char] > maxCount) {
+            maxCount = count[char];
+            maxLetter = char;
         }
     }
     return maxLetter;
 }
-console.log(mostUsedLetter("BANANA"));
+console.log(mostUsedLetter("PEPPER"));
+
+// ANAGRAMS - Two words are anagrams if they use the same letters in a different order.
+function anagramsWords(word1,word2) {
+    word1 = word1.replace(/\s+/g, '').toLowerCase();
+    word2 = word2.replace(/\s+/g, '').toLowerCase();
+    return word1.split('').sort().join('') === word2.split('').sort().join('');
+}
+console.log(anagramsWords("LISTEN","SILENT")); // true
+console.log(anagramsWords("CAT","DOG"));  // false
+console.log(anagramsWords("RAIL SAFETY","FAIRYTALES"));  // true
