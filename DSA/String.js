@@ -52,5 +52,76 @@ function reverseString(str) {
 }
 console.log(reverseString("JACOB")); 
 
+// Using a Loop.
+function reverseStringLoop(str) {
+    let reversed = "";
+    for(let char of str) {
+        reversed = char + reversed;
+    }
+    return reversed;
+}
+console.log("Using a loop: ",reverseStringLoop("classroom"));
+
 // Check for Palindrome
 // -Palindrome: is a word that reads the same forward and backward.
+function isPalindrome(word) {
+    let reversed = word.split('').reverse().join('');
+    return word === reversed;
+}
+
+console.log(isPalindrome("MOM")); // true
+console.log(isPalindrome("CAT")); // false
+console.log(isPalindrome("RACECAR")); // false
+
+// counting Vowels(A,E,I,O,U)
+// If we count vowels in "APPLE" we get 2. (a,e)
+function countVowels(word) {
+    let vowels = "aeiouAEIOU";
+    let count = 0;
+
+    for (let letter of word) {
+        if (vowels.includes(letter)) {
+            count++;
+        }
+    }
+    return count;
+}
+console.log(countVowels("APPLE"));
+console.log(countVowels("PLP"));
+console.log(countVowels("EMPLOYEE"));
+
+// Removing Duplicate letters
+function removeDuplicates(word) {
+    let set = '';
+    for(let char of word) {
+        if (!set.includes(char)){
+            set += char;
+        }
+    }
+    return set;
+}
+console.log(removeDuplicates("BANANA"));
+
+//2nd method
+function removeDuplicate(word) {
+    let setWord = [...new Set(word)].join('');
+    return setWord;
+}
+console.log(removeDuplicate("NECESSARY"));
+
+// Finding the Most Used Letter.
+function mostUsedLetter(word) {
+    let count = {}; // empty object to store how many times each letter appears.
+    let maxLetter = ''; // This will store the most used letter
+    let maxCount = 0; // This will store how many times that letter appears.
+
+    for(let char of word) {
+        count[letter] = (count[letter] || 0) + 1;
+        if (count[letter] > maxCount) {
+            maxCount = count[letter];
+            maxLetter = letter;
+        }
+    }
+    return maxLetter;
+}
+console.log(mostUsedLetter("BANANA"));
