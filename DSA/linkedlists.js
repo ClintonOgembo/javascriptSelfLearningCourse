@@ -74,6 +74,23 @@ class Linkedlist {
             this.size--;
         }
     }
+
+    // Searching for an element
+    search(value) {
+        let current = this.head; // start at the head
+        let index = 0;  // track the position of the node
+
+        while(current) {  // traverse through the list
+            if(current.data === value) {
+                return `Value ${value} found at index ${index}`;
+            }
+            current = current.next;  // move to the next node
+            index++;  // increase index count
+        }
+
+        return `Value ${value} not found in the list`;
+
+    }
 }
 
 
@@ -89,6 +106,10 @@ list.printList(); // output: 16 -> 32 -> 48
 // Example usage of deletion
 list.delete(32);
 list.printList();
+
+// Example usage of searching
+console.log(list.search(64));
+console.log(list.search(24));
 
 /*class Linkedlist {
     constructor() {
