@@ -91,6 +91,54 @@ class Linkedlist {
         return `Value ${value} not found in the list`;
 
     }
+
+    // Inserting at a specific position
+    insertAt(value, position) {
+        if(position < 0 || position > this.size) {   // Check if the position is valid
+            console.log("Invalid position");
+            return;
+        }
+
+        const newNode = new Node(value);
+
+        if(position === 0) {   // insert at the head
+            newNode.next = this.head;
+            this.head = newNode;
+        } 
+        else {
+            let current = this.head;
+            let previous = null;
+            let index = 0;
+
+            while(index < position) {  // traverse to the position
+                previous = current;
+                current = current.next;
+                index++;
+            }
+
+            newNode.next = current;
+            previous.next = newNode;
+        }
+
+        this.size++;
+        
+    }
+
+    // Reversing linked list
+    reverse() {
+        let prev = null;           // previous node (starts as null)
+        let current = this.head;   // Current node (starts at head)
+        let next = null;           // temporary next node
+
+        while(current) {
+            next = current.next;    // store the next node
+            current.next = prev;    // Reverse the pointer direction
+            prev = current;         // move `prev` forward
+            current = next;         // move `current` forward
+        }
+
+        this.head = prev;           // update head to the new first node
+    }
 }
 
 
@@ -110,6 +158,39 @@ list.printList();
 // Example usage of searching
 console.log(list.search(64));
 console.log(list.search(24));
+
+// example usage of inserting at a specific position
+console.log("Before insertion:");
+list.printList();  
+
+list.insertAt(20, 1); // Insert 20 at position 1
+list.insertAt(5, 0);  // Insert 5 at the head
+list.insertAt(40, 4); // Insert 40 at the last position
+
+console.log("After insertion:");
+list.printList();  
+
+// Example usage of reversing
+console.log("Before the reversing");
+list.printList();
+
+list.reverse();
+
+console.log("After reversing");
+list.printList();
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*class Linkedlist {
     constructor() {
