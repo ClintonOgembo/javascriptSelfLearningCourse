@@ -17,7 +17,7 @@ class CircularQueue {
     }
 
     // Enqueue - add element at the rear
-    Enqueue(value) {
+    enqueue(value) {
         if (this.isFull()) {
             console.log("Queue is Full! Cannot enqueue", value);
             return;
@@ -33,7 +33,7 @@ class CircularQueue {
     }
 
     // Dequeue - remove the first element
-    Dequeue() {
+    dequeue() {
         if(this.isEmpty()) {
             console.log("Queue is Empty");
             return;
@@ -59,12 +59,12 @@ class CircularQueue {
             return;
         }
 
-        let current = this.queue[this.front];
-        let result = '';
-        while(current) {
-            result += current + " ";
-            if (current === this.rear) break;   // Stop when we reach the last element
-            current = (current + 1) % this.size;     // Move forward circularly
+        let result = ""
+        let i = this.front;
+        while(true) {
+            result += this.queue[i] + " ";
+            if (i === this.rear) break;   // Stop when we reach the last element
+            i = (i + 1) % this.size;     // Move forward circularly
         }
         console.log("Queue:", result);
     }
@@ -72,17 +72,18 @@ class CircularQueue {
 
 // Testing the circular Queue
 const cq = new CircularQueue(5);   // 5 is the size of the queue
-cq.Enqueue(1);
-cq.Enqueue(2);
-cq.Enqueue(3);
-cq.Enqueue(4);
-cq.Enqueue(5);
+cq.enqueue(1);
+cq.enqueue(2);
+cq.enqueue(3);
+cq.enqueue(4);
+cq.enqueue(5);
 cq.print();
 
-cq.Dequeue();
-cq.Dequeue();
+cq.dequeue();
+cq.dequeue();
 cq.print();
 
-cq.Enqueue(6);
-cq.Enqueue(7);
+cq.enqueue(6);
+cq.enqueue(7);
+cq.enqueue(8);
 cq.print();
