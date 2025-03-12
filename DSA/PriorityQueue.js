@@ -34,7 +34,7 @@ class priorityQueue{
 
     // Dequeue: Remove the highest priority element(head)
     dequeue() {
-        if(!this.isEmpty()) return "The priority Queue is Empty";
+        if(this.isEmpty()) return "The priority Queue is Empty";
         let removedElement = this.front.value;
         this.front = this.front.next;
         return removedElement;
@@ -47,7 +47,7 @@ class priorityQueue{
 
     // Check if the queue is empty
     isEmpty() {
-        return this.head === null;
+        return this.front === null;
     }
 
     // print the queue
